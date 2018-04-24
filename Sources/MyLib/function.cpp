@@ -1,4 +1,4 @@
-#include <BPackage/function.h>
+#include <MyLib/function.h>
 
 #include <iostream>
 
@@ -6,6 +6,6 @@ namespace mylib
 {
     void function()
     {
-        std::cout << "BPackage function()";
+        std::cout << "MyLib function()";
     }
 }
