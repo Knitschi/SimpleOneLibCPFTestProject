@@ -4,3 +4,6 @@
 [submodule "Sources/CPFBuildscripts"]
 	path = Sources/CPFBuildscripts
 	url = https://github.com/Knitschi/CPFBuildscripts.git
+[submodule "Sources/cotire"]
+	path = Sources/cotire
+	url = https://github.com/Knitschi/cotire.git
