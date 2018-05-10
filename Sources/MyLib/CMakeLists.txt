@@ -18,10 +18,16 @@ set( PACKAGE_PRODUCTION_FILES
 	function.cpp
 )
 
-set(PACKAGE_FIXTURE_FILES
+set( PACKAGE_PUBLIC_FIXTURE_HEADER
+	fixture.h
+)
+
+set( PACKAGE_FIXTURE_FILES
+	fixture.cpp
 )
 	
 set( PACKAGE_TEST_FILES
+	test_main.cpp
 )
 
 set(PACKAGE_LINKED_LIBRARIES
