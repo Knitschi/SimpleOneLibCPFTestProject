@@ -7,3 +7,6 @@
 [submodule "Sources/cotire"]
 	path = Sources/cotire
 	url = https://github.com/Knitschi/cotire.git
+[submodule "Sources/CIBuildConfigurations"]
+	path = Sources/CIBuildConfigurations
+	url = https://github.com/Knitschi/CIBuildConfigurations.git
