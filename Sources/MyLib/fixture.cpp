@@ -6,6 +6,6 @@ namespace mylib
 {
     void MyFixture::setUp()
     {
-	   std::cout << "MyFixture::setUp()" << std::endl;
+	   std::cout << "MyFixture::setUp()\n";
     }
 }
