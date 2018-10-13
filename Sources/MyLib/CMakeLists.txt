@@ -1,5 +1,5 @@
 
-include(cpfAddPackage)
+include(cpfAddCppPackage)
 
 set( PACKAGE_NAMESPACE mylib )
 cpfInitPackageProject(
@@ -42,7 +42,7 @@ set( archiveDevPackageOptions
 )
 
 ############################################## Add Package #################################
-cpfAddPackage( 
+cpfAddCppPackage( 
 	PACKAGE_NAME			${PACKAGE_NAME}
 	PACKAGE_NAMESPACE		${PACKAGE_NAMESPACE}
 	TYPE					LIB
