@@ -9,3 +9,4 @@ namespace mylib
 	   std::cout << "MyFixture::setUp()\n";
     }
 }
+
