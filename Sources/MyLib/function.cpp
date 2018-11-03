@@ -9,3 +9,4 @@ namespace mylib
         std::cout << "MyLib function()\n";
     }
 }
+
