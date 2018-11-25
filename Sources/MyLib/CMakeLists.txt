@@ -43,7 +43,6 @@ set( archiveDevPackageOptions
 
 ############################################## Add Package #################################
 cpfAddCppPackage( 
-	PACKAGE_NAME			${PACKAGE_NAME}
 	PACKAGE_NAMESPACE		${PACKAGE_NAMESPACE}
 	TYPE					LIB
 	BRIEF_DESCRIPTION		${briefDescription}
