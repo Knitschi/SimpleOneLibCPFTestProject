@@ -1,9 +1,8 @@
-# Root CMakeLists file for the "CMakeProjectFramework"
-cmake_minimum_required (VERSION 3.8.0) 
+# Root CMakeLists file for the SimpleOneLibCPFTestProject
 
-include("CPFCMake/Functions/cpfAddPackages.cmake")
-# make sure the compiler is set before the project call
-include("${CMAKE_TOOLCHAIN_FILE}")
+include("CPFCMake/cpfInit.cmake")
+
+cmake_minimum_required (VERSION ${CPF_MINIMUM_CMAKE_VERSION}) 
 
 project(SimpleOneLibCPFTestProject)
 
