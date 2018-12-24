@@ -1,0 +1,9 @@
+/**
+\mainpage Overview
+
+# The SimpleOneLibCPFTestProject #
+
+The project contains one fixed library package and is used as an example for the
+CMakeProjectFramework and a test project.
+
+*/
