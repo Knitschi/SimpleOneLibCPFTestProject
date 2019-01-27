@@ -41,6 +41,7 @@ set( archiveDevPackageOptions
 
 ############################################## Add Package #################################
 cpfAddCppPackage( 
+	OWNER					"Dummy Owner"
 	PACKAGE_NAMESPACE		mylib
 	TYPE					LIB
 	BRIEF_DESCRIPTION		${briefDescription}
