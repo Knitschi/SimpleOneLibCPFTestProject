@@ -4,7 +4,7 @@ include(cpfAddCppPackage)
 
 cpfInitPackageProject()
 
-set( briefDescription "A C++ libary used for testing the CPF" )
+set( briefDescription "A C++ library used for testing the CPF" )
 set( longDescription "Put a long description in here ..." )
 
 
