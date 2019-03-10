@@ -3,8 +3,8 @@
 
 int main(int, char**)
 {
-    mylib::MyFixture f;
-    f.setUp();
-    
-    return 0;
+	mylib::MyFixture f;
+	f.setUp();
+
+	return 0;
 }

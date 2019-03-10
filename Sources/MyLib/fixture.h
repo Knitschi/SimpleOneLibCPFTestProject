@@ -3,9 +3,9 @@
 
 namespace mylib
 {
-    class MYLIB_TESTS_EXPORT MyFixture
-    {
-    public:
-        void setUp();
-    };
+	class MYLIB_TESTS_EXPORT MyFixture
+	{
+	  public:
+		void setUp();
+	};
 }
