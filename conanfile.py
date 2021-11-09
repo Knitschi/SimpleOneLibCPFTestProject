@@ -32,11 +32,11 @@ class BuildCPFAssistantConan(ConanFile):
 
     def source(self):
         self.run("git clone --recursive https://github.com/Knitschi/SimpleOneLibCPFTestProject.git {0}".format(self.source_folder))
-        self.run("cd {0} && git checkout {1}".format(self.source_folder, self.version))
+        #self.run("cd {0} && git checkout {1}".format(self.source_folder, self.version))
 
     def build(self):
         self.run("python ./Sources/CPFBuildScripts/0_CopyScripts.py")
-        self.run("python 1_Configure.py {0} --inherits {1}".format(self.options.CPF_CONFIG, self.options.CPF_INHERITED_CONFIG))
+        self.run("python 1_Configure.py {0} --inherits {1} -DCMAKE_INSTALL_PREFIX=\"{2}\"".format(self.options.CPF_CONFIG, self.options.CPF_INHERITED_CONFIG, self.install_folder))
         self.run("python 3_Generate.py {0}".format(self.options.CPF_CONFIG))
         self.run("python 4_Make.py {0} --target MyLib --config {1}".format(self.options.CPF_CONFIG, self.settings.build_type))
  
@@ -46,6 +46,10 @@ class BuildCPFAssistantConan(ConanFile):
  
     def package_info(self):
         self.cpp_info.libs = ["MyLib"]
+        self.cpp_info.includedirs = ['include']
+        self.cpp_info.libdirs = ['lib']
+        self.cpp_info.bindirs = ['.']
+        self.cpp_info.srcdirs = ['src']
 
 
 

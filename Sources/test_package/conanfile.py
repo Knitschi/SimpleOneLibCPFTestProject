@@ -14,6 +14,7 @@ class HelloTestConan(ConanFile):
 
     def build(self):
         cmake = CMake(self)
+        cmake.definitions["MyLib_DIR"] = self.deps_cpp_info["MyLib"].include_paths[0]
         cmake.configure()
         cmake.build()
 
