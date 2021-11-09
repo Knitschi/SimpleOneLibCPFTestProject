@@ -6,7 +6,7 @@ from conans.tools import os_info, SystemPackageTool
 
 class BuildCPFAssistantConan(ConanFile):
     name = "MyLib"
-    version = "0.1.15"
+    version = "0.0.5"
     url = "blub"
     license = "MIT"
     description = "A collection of Knitschis toy projects."
@@ -31,7 +31,7 @@ class BuildCPFAssistantConan(ConanFile):
     generators = "cmake"
 
     def source(self):
-        self.run("git clone https://github.com/Knitschi/SimpleOneLibCPFTestProject.git {0}".format(self.source_folder))
+        self.run("git clone --recursive https://github.com/Knitschi/SimpleOneLibCPFTestProject.git {0}".format(self.source_folder))
         self.run("cd {0} && git checkout {1}".format(self.source_folder, self.version))
 
     def build(self):
@@ -45,7 +45,7 @@ class BuildCPFAssistantConan(ConanFile):
  
  
     def package_info(self):
-        self.cpp_info.libs = ["libStlUtilities"]
+        self.cpp_info.libs = ["MyLib"]
 
 
 
