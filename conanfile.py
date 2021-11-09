@@ -3,7 +3,7 @@ from conans import ConanFile
 #from conan.tools.cmake import CMakeToolchain
 #from conan.tools.layout import cmake_layout
 from conans.tools import os_info, SystemPackageTool
-from pathlib import Path, PureWindowsPath
+from pathlib import PurePath, PurePosixPath
 
 class BuildCPFAssistantConan(ConanFile):
     name = "MyLib"
@@ -36,10 +36,10 @@ class BuildCPFAssistantConan(ConanFile):
         #self.run("cd {0} && git checkout {1}".format(self.source_folder, self.version))
 
     def build(self):
-        installPathUnix = Path(PureWindowsPath(self.install_folder))
+        installPathPosixs = PurePosixPath(PurePath(self.install_folder))
 
         self.run("python ./Sources/CPFBuildScripts/0_CopyScripts.py")
-        self.run("python 1_Configure.py {0} --inherits {1} -DCMAKE_INSTALL_PREFIX=\"{2}\"".format(self.options.CPF_CONFIG, self.options.CPF_INHERITED_CONFIG, installPathUnix))
+        self.run("python 1_Configure.py {0} --inherits {1} -DCMAKE_INSTALL_PREFIX=\"{2}\"".format(self.options.CPF_CONFIG, self.options.CPF_INHERITED_CONFIG, installPathPosixs))
         self.run("python 3_Generate.py {0}".format(self.options.CPF_CONFIG))
         self.run("python 4_Make.py {0} --target MyLib --config {1}".format(self.options.CPF_CONFIG, self.settings.build_type))
  
