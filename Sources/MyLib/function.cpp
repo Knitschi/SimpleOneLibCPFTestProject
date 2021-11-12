@@ -5,6 +5,6 @@ namespace mylib
 {
 	void function()
 	{
-		std::cout << "MyLib function()\n";
+		std::cout << "Hello MyLib\n";
 	}
 }
