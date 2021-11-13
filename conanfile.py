@@ -18,7 +18,7 @@ class BuildCPFAssistantConan(ConanFile):
         "CPF_INHERITED_CONFIG": ["VS2019-shared-debug","VS2019-static-release", "MSVC2019", "Gcc", "Clang"],
         "CPF_CONFIG": "ANY",
         "debug_postfix": "ANY",
-        "DOXYGEN_BIN_DIR": "ANY"
+        "CPF_DOXYGEN_DIR": "ANY"
     }
 
     default_options = {
@@ -26,7 +26,7 @@ class BuildCPFAssistantConan(ConanFile):
         "CPF_INHERITED_CONFIG": "VS2019-shared-debug",
         "CPF_CONFIG": "VS2019-shared-debug",
         "debug_postfix": "-debug",
-        "DOXYGEN_BIN_DIR": ""
+        "CPF_DOXYGEN_DIR": ""
     }
 
     # Dependencies
@@ -43,7 +43,7 @@ class BuildCPFAssistantConan(ConanFile):
         installPathPosixs = self.package_folder.replace("\\","/")
 
         self.run("python ./Sources/CPFBuildScripts/0_CopyScripts.py")
-        self.run("python 1_Configure.py {0} --inherits {1} -DCMAKE_INSTALL_PREFIX=\"{2}\" -DDOXYGEN_BIN_DIR=\"{3}\"".format(
+        self.run("python 1_Configure.py {0} --inherits {1} -DCMAKE_INSTALL_PREFIX=\"{2}\" -DCPF_DOXYGEN_DIR=\"{3}\"".format(
             self.options.CPF_CONFIG,
             self.options.CPF_INHERITED_CONFIG,
             installPathPosixs,
