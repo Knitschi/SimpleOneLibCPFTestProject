@@ -2,7 +2,9 @@
 include(cpfInitPackageProject)
 include(cpfAddCppPackage)
 
-cpfInitPackageProject()
+cpfInitPackageProject(
+	TARGET_NAMESPACE mylib
+)
 
 set( briefDescription "A C++ library used for testing the CPF" )
 set( longDescription "Put a long description in here ..." )
@@ -42,7 +44,6 @@ set( archiveDevPackageOptions
 ############################################## Add Package #################################
 cpfAddCppPackage( 
 	OWNER					"Dummy Owner"
-	PACKAGE_NAMESPACE		mylib
 	TYPE					LIB
 	BRIEF_DESCRIPTION		${briefDescription}
 	LONG_DESCRIPTION		${longDescription}

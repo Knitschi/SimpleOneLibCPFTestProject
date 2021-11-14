@@ -7,9 +7,9 @@ from pathlib import PurePath, PurePosixPath
 
 class BuildCPFAssistantConan(ConanFile):
     name = "MyLib"
-    url = "blub"
+    url = "https://github.com/Knitschi/SimpleOneLibCPFTestProject"
     license = "MIT"
-    description = "A collection of Knitschis toy projects."
+    description = "A package that is created by the SimpleOneLibCPFTestProject repository."
 
     # Binary configuration
     settings = "os", "arch", "compiler", "build_type"

@@ -6,5 +6,5 @@ cmake_minimum_required (VERSION ${CPF_MINIMUM_CMAKE_VERSION})
 
 project(SimpleOneLibCPFTestProject)
 
-cpfAddPackages()
+cpfAddPackages(GLOBAL_FILES "${CPF_ROOT_DIR}/conanfile.py")
 
