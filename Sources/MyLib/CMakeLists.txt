@@ -1,14 +1,17 @@
 
-include(cpfInitPackageProject)
-include(cpfAddCppPackage)
+include(cpfPackageProject)
+include(cpfAddCppPackageComponent)
 
-cpfInitPackageProject(
-	TARGET_NAMESPACE mylib
+cpfPackageProject(
+    TARGET_NAMESPACE mylib
+    COMPONENTS SINGLE_COMPONENT
+	BRIEF_DESCRIPTION "A C++ library used for testing the CPF"
+	LONG_DESCRIPTION "Put a long description in here ..."
+	OWNER "Dummy Owner"
+	DISTRIBUTION_PACKAGES
+		DISTRIBUTION_PACKAGE_CONTENT_TYPE 	CT_DEVELOPER
+		DISTRIBUTION_PACKAGE_FORMATS 		7Z
 )
-
-set( briefDescription "A C++ library used for testing the CPF" )
-set( longDescription "Put a long description in here ..." )
-
 
 set( PACKAGE_PUBLIC_HEADER
 	function.h
@@ -30,29 +33,12 @@ set( PACKAGE_TEST_FILES
 	test_main.cpp
 )
 
-set(PACKAGE_LINKED_LIBRARIES
-)
-
-set(PACKAGE_LINKED_TEST_LIBRARIES
-)
-
-set( archiveDevPackageOptions
-	DISTRIBUTION_PACKAGE_CONTENT_TYPE 	CT_DEVELOPER
-	DISTRIBUTION_PACKAGE_FORMATS 		7Z
-)
-
 ############################################## Add Package #################################
-cpfAddCppPackage( 
-	OWNER					"Dummy Owner"
+cpfAddCppPackageComponent( 
 	TYPE					LIB
-	BRIEF_DESCRIPTION		${briefDescription}
-	LONG_DESCRIPTION		${longDescription}
 	PUBLIC_HEADER			${PACKAGE_PUBLIC_HEADER}
 	PRODUCTION_FILES		${PACKAGE_PRODUCTION_FILES}
 	PUBLIC_FIXTURE_HEADER	${PACKAGE_PUBLIC_FIXTURE_HEADER}
 	FIXTURE_FILES			${PACKAGE_FIXTURE_FILES}
 	TEST_FILES				${PACKAGE_TEST_FILES}
-	LINKED_LIBRARIES		${PACKAGE_LINKED_LIBRARIES}
-	LINKED_TEST_LIBRARIES	${PACKAGE_LINKED_TEST_LIBRARIES}
-	DISTRIBUTION_PACKAGES 	${archiveDevPackageOptions}
 )

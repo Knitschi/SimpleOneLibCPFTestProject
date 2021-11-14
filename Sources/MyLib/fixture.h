@@ -1,9 +1,9 @@
-#include <MyLib/mylib_tests_export.h>
+#include <MyLib/mylib_fixtures_export.h>
 
 
 namespace mylib
 {
-	class MYLIB_TESTS_EXPORT MyFixture
+	class MYLIB_FIXTURES_EXPORT MyFixture
 	{
 	  public:
 		void setUp();
