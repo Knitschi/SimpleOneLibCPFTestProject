@@ -20,3 +20,4 @@ cpfAddDoxygenPackageComponent(
     DOXYGEN_BIN_DIR ${CPF_DOXYGEN_DIR}
 )
 
+finalizePackageProject()

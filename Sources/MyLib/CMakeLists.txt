@@ -42,3 +42,5 @@ cpfAddCppPackageComponent(
 	FIXTURE_FILES			${PACKAGE_FIXTURE_FILES}
 	TEST_FILES				${PACKAGE_TEST_FILES}
 )
+
+finalizePackageProject()
