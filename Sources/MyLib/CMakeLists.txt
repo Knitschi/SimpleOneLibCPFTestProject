@@ -8,9 +8,9 @@ cpfPackageProject(
 	BRIEF_DESCRIPTION "A C++ library used for testing the CPF"
 	LONG_DESCRIPTION "Put a long description in here ..."
 	OWNER "Dummy Owner"
-	DISTRIBUTION_PACKAGES
-		DISTRIBUTION_PACKAGE_CONTENT_TYPE 	CT_DEVELOPER
-		DISTRIBUTION_PACKAGE_FORMATS 		7Z
+	PACKAGE_ARCHIVES
+		PACKAGE_ARCHIVE_CONTENT_TYPE 	CT_DEVELOPER
+		PACKAGE_ARCHIVE_FORMATS 		7Z
 )
 
 set( PACKAGE_PUBLIC_HEADER
@@ -43,4 +43,4 @@ cpfAddCppPackageComponent(
 	TEST_FILES				${PACKAGE_TEST_FILES}
 )
 
-finalizePackageProject()
+cpfFinalizePackageProject()
