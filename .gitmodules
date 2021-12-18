@@ -1,12 +1,12 @@
-[submodule "Sources/CPFCMake"]
-	path = Sources/CPFCMake
+[submodule "Sources/external/CPFCMake"]
+	path = Sources/external/CPFCMake
 	url = https://github.com/Knitschi/CPFCMake.git
-[submodule "Sources/CPFBuildscripts"]
-	path = Sources/CPFBuildscripts
+[submodule "Sources/external/CPFBuildscripts"]
+	path = Sources/external/CPFBuildscripts
 	url = https://github.com/Knitschi/CPFBuildscripts.git
-[submodule "Sources/cotire"]
-	path = Sources/cotire
+[submodule "Sources/external/cotire"]
+	path = Sources/external/cotire
 	url = https://github.com/Knitschi/cotire.git
-[submodule "Sources/CIBuildConfigurations"]
-	path = Sources/CIBuildConfigurations
+[submodule "Sources/external/CIBuildConfigurations"]
+	path = Sources/external/CIBuildConfigurations
 	url = https://github.com/Knitschi/CIBuildConfigurations.git
