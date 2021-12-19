@@ -1,8 +1,8 @@
 set( CPF_PACKAGES
-	EXTERNAL CIBuildConfigurations
-    EXTERNAL cotire
-	EXTERNAL CPFCMake
-    EXTERNAL CPFBuildscripts
+	EXTERNAL external/CIBuildConfigurations
+    EXTERNAL external/cotire
+	EXTERNAL external/CPFCMake
+    EXTERNAL external/CPFBuildscripts
     OWNED MyLib
     OWNED documentation
 )
