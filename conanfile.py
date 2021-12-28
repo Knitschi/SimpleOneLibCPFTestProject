@@ -42,7 +42,7 @@ class BuildCPFAssistantConan(ConanFile):
     def build(self):
         installPathPosixs = self.package_folder.replace("\\","/")
 
-        self.run("python ./Sources/CPFBuildScripts/0_CopyScripts.py")
+        self.run("python ./Sources/external/CPFBuildScripts/0_CopyScripts.py --CPFCMake_DIR Sources/external/CPFCMake --CIBuildConfigurations_DIR Sources/external/CIBuildConfigurations")
         self.run("python 1_Configure.py {0} --inherits {1} -DCMAKE_INSTALL_PREFIX=\"{2}\" -DCPF_DOXYGEN_DIR=\"{3}\"".format(
             self.options.CPF_CONFIG,
             self.options.CPF_INHERITED_CONFIG,
