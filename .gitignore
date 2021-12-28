@@ -11,3 +11,10 @@ Configuration
 /2_GetDependencies.py
 /3_Generate.py
 /4_Make.py
+/Sources/test_package/graph_info.json
+/Sources/test_package/conan.lock
+/Sources/test_package/conan_imports_manifest.txt
+/Sources/test_package/conanbuildinfo.cmake
+/Sources/test_package/conanbuildinfo.txt
+/Sources/test_package/conaninfo.txt
+/Sources/test_package/build
