@@ -40,13 +40,13 @@ class BuildCPFAssistantConan(ConanFile):
         #self.run("cd {0} && git checkout {1}".format(self.source_folder, self.version))
 
     def build(self):
-        installPathPosixs = self.package_folder.replace("\\","/")
+        installPathPosix = self.package_folder.replace("\\","/")
 
         self.run("python ./Sources/external/CPFBuildScripts/0_CopyScripts.py --CPFCMake_DIR Sources/external/CPFCMake --CIBuildConfigurations_DIR Sources/external/CIBuildConfigurations")
         self.run("python 1_Configure.py {0} --inherits {1} -DCMAKE_INSTALL_PREFIX=\"{2}\" -DCPF_DOXYGEN_DIR=\"{3}\"".format(
             self.options.CPF_CONFIG,
             self.options.CPF_INHERITED_CONFIG,
-            installPathPosixs,
+            installPathPosix,
             self.deps_cpp_info["doxygen"].bindirs[0].replace("\\","/")
         ))
         self.run("python 3_Generate.py {0}".format(self.options.CPF_CONFIG))
