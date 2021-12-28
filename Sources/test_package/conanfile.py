@@ -12,14 +12,15 @@ class HelloTestConan(ConanFile):
     #generators = "CMakeDeps", "CMakeToolchain", "VirtualBuildEnv", "VirtualRunEnv"
     generators = "cmake"
     apply_env = False
+    build_folder = "../../test_package_build/" + str(self.settings.build_type)
 
     def imports(self):
-        self.copy("*.dll", "build/" + str(self.settings.build_type), "MyLib")
+        self.copy("*.dll", self.build_folder , "MyLib")
 
     def build(self):
         cmake = CMake(self)
         cmake.definitions["MyLib_DIR"] = self.deps_cpp_info["MyLib"].rootpath + "/MyLib/lib/cmake/MyLib"
-        cmake.configure()
+        cmake.configure(build_folder=self.build_folder)
         cmake.build()
 
     def layout(self):
