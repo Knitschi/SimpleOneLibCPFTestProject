@@ -15,22 +15,20 @@ class BuildCPFAssistantConan(ConanFile):
     settings = "os", "arch", "compiler", "build_type"
     options = {
         "shared": [True, False],
-        "CPF_INHERITED_CONFIG": ["VS2019-shared-debug","VS2019-static-release", "MSVC2019", "Gcc", "Clang"],
+        "CPF_INHERITED_CONFIG": ["VS2019-shared-debug","VS2019-static-release", "MSVC2019", "Gcc-shared-debug", "Clang-static-release"],
         "CPF_CONFIG": "ANY",
-        "debug_postfix": "ANY",
-        "CPF_DOXYGEN_DIR": "ANY"
+        "debug_postfix": "ANY"
     }
 
     default_options = {
         "shared": True,
         "CPF_INHERITED_CONFIG": "VS2019-shared-debug",
         "CPF_CONFIG": "VS2019-shared-debug",
-        "debug_postfix": "-debug",
-        "CPF_DOXYGEN_DIR": ""
+        "debug_postfix": "-debug"
     }
 
     # Dependencies
-    build_requires = "cmake/3.20.4", "doxygen/1.8.17"
+    tool_requires = "cmake/3.20.4", "doxygen/1.8.17"
 
     generators = "cmake"
     #generators = "CMakeToolchain" "CMakeDeps" # according to mateusz the future default generators.
@@ -43,13 +41,12 @@ class BuildCPFAssistantConan(ConanFile):
         installPathPosix = self.package_folder.replace("\\","/")
 
         self.run("python3 ./Sources/external/CPFBuildscripts/0_CopyScripts.py --CPFCMake_DIR Sources/external/CPFCMake --CIBuildConfigurations_DIR Sources/external/CIBuildConfigurations")
-        self.run("python3 1_Configure.py {0} --inherits {1} -DCMAKE_INSTALL_PREFIX=\"{2}\" -DCPF_DOXYGEN_DIR=\"{3}\"".format(
+        self.run("python3 1_Configure.py {0} --inherits {1} -DCMAKE_INSTALL_PREFIX=\"{2}\"".format(
             self.options.CPF_CONFIG,
             self.options.CPF_INHERITED_CONFIG,
-            installPathPosix,
-            self.deps_cpp_info["doxygen"].bindirs[0].replace("\\","/")
+            installPathPosix
         ))
-        self.run("python3 3_Generate.py {0}".format(self.options.CPF_CONFIG))
+        self.run("python3 3_Generate.py {0} --clean".format(self.options.CPF_CONFIG))
         self.run("python3 4_Make.py {0} --target MyLib --config {1}".format(self.options.CPF_CONFIG, self.settings.build_type))
  
     def package(self):
