@@ -42,18 +42,18 @@ class BuildCPFAssistantConan(ConanFile):
     def build(self):
         installPathPosix = self.package_folder.replace("\\","/")
 
-        self.run("python ./Sources/external/CPFBuildScripts/0_CopyScripts.py --CPFCMake_DIR Sources/external/CPFCMake --CIBuildConfigurations_DIR Sources/external/CIBuildConfigurations")
-        self.run("python 1_Configure.py {0} --inherits {1} -DCMAKE_INSTALL_PREFIX=\"{2}\" -DCPF_DOXYGEN_DIR=\"{3}\"".format(
+        self.run("python3 ./Sources/external/CPFBuildscripts/0_CopyScripts.py --CPFCMake_DIR Sources/external/CPFCMake --CIBuildConfigurations_DIR Sources/external/CIBuildConfigurations")
+        self.run("python3 1_Configure.py {0} --inherits {1} -DCMAKE_INSTALL_PREFIX=\"{2}\" -DCPF_DOXYGEN_DIR=\"{3}\"".format(
             self.options.CPF_CONFIG,
             self.options.CPF_INHERITED_CONFIG,
             installPathPosix,
             self.deps_cpp_info["doxygen"].bindirs[0].replace("\\","/")
         ))
-        self.run("python 3_Generate.py {0}".format(self.options.CPF_CONFIG))
-        self.run("python 4_Make.py {0} --target MyLib --config {1}".format(self.options.CPF_CONFIG, self.settings.build_type))
+        self.run("python3 3_Generate.py {0}".format(self.options.CPF_CONFIG))
+        self.run("python3 4_Make.py {0} --target MyLib --config {1}".format(self.options.CPF_CONFIG, self.settings.build_type))
  
     def package(self):
-        self.run("python 4_Make.py {0} --target install_MyLib --config {1}".format(self.options.CPF_CONFIG, self.settings.build_type))
+        self.run("python3 4_Make.py {0} --target install_MyLib --config {1}".format(self.options.CPF_CONFIG, self.settings.build_type))
  
  
     @property
