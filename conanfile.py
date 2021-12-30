@@ -1,3 +1,4 @@
+import platform
 from conans import ConanFile
 #from conan.tools.cmake import CMake
 #from conan.tools.cmake import CMakeToolchain
@@ -39,18 +40,21 @@ class BuildCPFAssistantConan(ConanFile):
 
     def build(self):
         installPathPosix = self.package_folder.replace("\\","/")
+        python = python_command()
 
-        self.run("python3 ./Sources/external/CPFBuildscripts/0_CopyScripts.py --CPFCMake_DIR Sources/external/CPFCMake --CIBuildConfigurations_DIR Sources/external/CIBuildConfigurations")
-        self.run("python3 1_Configure.py {0} --inherits {1} -DCMAKE_INSTALL_PREFIX=\"{2}\"".format(
+        self.run("{0} ./Sources/external/CPFBuildscripts/0_CopyScripts.py --CPFCMake_DIR Sources/external/CPFCMake --CIBuildConfigurations_DIR Sources/external/CIBuildConfigurations".format(python))
+        self.run("{0} 1_Configure.py {1} --inherits {2} -DCMAKE_INSTALL_PREFIX=\"{3}\"".format(
+            python,
             self.options.CPF_CONFIG,
             self.options.CPF_INHERITED_CONFIG,
             installPathPosix
         ))
-        self.run("python3 3_Generate.py {0} --clean".format(self.options.CPF_CONFIG))
-        self.run("python3 4_Make.py {0} --target MyLib --config {1}".format(self.options.CPF_CONFIG, self.settings.build_type))
+        self.run("{0} 3_Generate.py {1} --clean".format(python, self.options.CPF_CONFIG))
+        self.run("{0} 4_Make.py {1} --target MyLib --config {2}".format(python, self.options.CPF_CONFIG, self.settings.build_type))
  
     def package(self):
-        self.run("python3 4_Make.py {0} --target install_MyLib --config {1}".format(self.options.CPF_CONFIG, self.settings.build_type))
+        python = python_command()
+        self.run("{0} 4_Make.py {1} --target install_MyLib --config {2}".format(python, self.options.CPF_CONFIG, self.settings.build_type))
  
  
     @property
@@ -80,5 +84,11 @@ class BuildCPFAssistantConan(ConanFile):
         #self.cpp_info.components["MyLib"].includedirs = ["MyLib/include"]
         
         #self.cpp_info.components["MyLib"].requires = [""]
+
+def python_command():
+    if platform.system() == 'Windows':
+        return 'python'
+    else:
+        return 'python3'
 
 
