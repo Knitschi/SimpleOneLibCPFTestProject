@@ -31,7 +31,7 @@ class BuildCPFAssistantConan(ConanFile):
         "CPF_CONFIG": "VS2019-shared-debug",
         "CPF_INHERITED_CONFIG": "PlatformIndependent",
         "build_target": "pipeline",
-        "install_target": "install_MyLib",
+        "install_target": "install_all",
         "CMAKE_MAKE_PROGRAM": ""
     }
 
