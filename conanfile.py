@@ -8,7 +8,7 @@ from conans.tools import os_info, SystemPackageTool
 from conan.tools.cmake import CMakeToolchain
 from pathlib import PurePath, PurePosixPath
 
-class BuildCPFAssistantConan(ConanFile):
+class SimpleOneLibProject(ConanFile):
     name = "MyLib"
     url = "https://github.com/Knitschi/SimpleOneLibCPFTestProject"
     license = "MIT"
@@ -53,7 +53,7 @@ class BuildCPFAssistantConan(ConanFile):
         and 1_Configure steps. After that they can rely on the normal CPF workflow and need no
         other conan commands.
         """
-        python = python_command()
+        python = self.python_command()
 
         # The cwd is the conan install directory in this method.
         cpf_root_dir = os.getcwd().replace("\\","/") + "/../.." # This is used when running conan install.
@@ -86,7 +86,7 @@ class BuildCPFAssistantConan(ConanFile):
         self.run(configure_command, cwd=cpf_root_dir)
 
     def build(self):
-        python = python_command()
+        python = self.python_command()
         # Generate
         self.run("{0} 3_Generate.py {1} --clean".format(python, self.options.CPF_CONFIG))
         # Build
@@ -99,7 +99,7 @@ class BuildCPFAssistantConan(ConanFile):
  
     def package(self):
         # Copy files into install tree.
-        python = python_command()
+        python = self.python_command()
         self.run("{0} 4_Make.py {1} --target {2} --config {3}".format(
             python,
             self.options.CPF_CONFIG,
@@ -115,14 +115,35 @@ class BuildCPFAssistantConan(ConanFile):
         return self.options.debug_postfix if self.settings.build_type == "Debug" else ""
  
     def package_info(self):
-        self.cpp_info.libdirs = ["lib"]
-        self.cpp_info.bindirs = [""]
-        self.cpp_info.includedirs = ["include"]
 
-def python_command():
-    if platform.system() == 'Windows':
-        return 'python'
-    else:
-        return 'python3'
+        #self.cpp_info.includedirs = ['include'] # use default
+        #self.cpp_info.libdirs = ['lib'] # use default
+        #self.cpp_info.resdirs = ['res'] # use default
+        self.cpp_info.bindirs = self.get_bin_dir()
+        self.cpp_info.srcdirs = ['src']
+
+        # TODO: Read these values from cmake package config files when
+        # consumption by non-cmake projects is required.
+        # self.cpp_info.libs = []  # The libs to link against
+        # self.cpp_info.system_libs = []  # System libs to link against
+        # self.cpp_info.build_modules = {}  # Build system utility module files (cmake files)
+        # self.cpp_info.defines = []  # preprocessor definitions
+        # self.cpp_info.cflags = []  # pure C flags
+        # self.cpp_info.cxxflags = []  # C++ compilation flags
+        # self.cpp_info.sharedlinkflags = []  # linker flags
+        # self.cpp_info.exelinkflags = []  # linker flags
+
+
+    def python_command(self):
+        if self.settings.os == 'Windows':
+            return 'python'
+        else:
+            return 'python3'
+
+    def get_bin_dir(self):
+        if self.settings.os_build == 'Windows':
+            return ''
+        else:
+            return 'bin'
 
 
