@@ -1,6 +1,6 @@
 from conans import ConanFile
 
-class Package(ConanFile):
+class SimpleOneLibCPFTestProject(ConanFile):
     
     name = "MyLib"
     url = "https://github.com/Knitschi/SimpleOneLibCPFTestProject"
