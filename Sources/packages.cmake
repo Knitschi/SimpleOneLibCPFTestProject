@@ -1,5 +1,5 @@
 set( CPF_PACKAGES
-	EXTERNAL external/CIBuildConfigurations
+	OWNED CIBuildConfigurations
     EXTERNAL external/cotire
 	EXTERNAL external/CPFCMake
     EXTERNAL external/CPFBuildscripts
