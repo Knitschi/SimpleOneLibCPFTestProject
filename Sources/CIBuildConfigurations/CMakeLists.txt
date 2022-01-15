@@ -8,14 +8,7 @@ cpfPackageProject(
 )
 
 set(files
-	Clang-shared-debug.config.cmake
-	Clang-static-release.config.cmake
 	cpfCIBuildConfigurations.json
-	Gcc-shared-debug.config.cmake
-	README.rst
-	VS2019-shared.config.cmake
-	VS2019-shared-debug.config.cmake
-	VS2019-static-release.config.cmake
 )
 
 cpfAddFilePackageComponent(

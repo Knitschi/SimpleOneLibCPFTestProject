@@ -25,5 +25,5 @@ class SimpleOneLibCPFTestProject(ConanFile):
             "https://github.com/Knitschi/SimpleOneLibCPFTestProject.git",
             path_CPFCMake='Sources/external/CPFCMake',
             path_CPFBuildscripts='Sources/external/CPFBuildscripts',
-            path_CIBuildConfigurations = 'Sources/CIBuildConfigurations'
+            path_CIBuildConfigurations='Sources/CIBuildConfigurations'
             )
