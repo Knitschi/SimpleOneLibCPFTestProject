@@ -7,6 +7,3 @@
 [submodule "Sources/external/CPFCMake"]
 	path = Sources/external/CPFCMake
 	url = https://github.com/Knitschi/CPFCMake.git
-[submodule "Sources/external/CIBuildConfigurations"]
-	path = Sources/external/CIBuildConfigurations
-	url = https://github.com/Knitschi/CIBuildConfigurations.git
