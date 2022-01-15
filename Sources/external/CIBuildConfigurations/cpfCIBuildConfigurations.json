@@ -1,0 +1,32 @@
+[
+    {
+        "ConfigName" : "clang-x86_64-shared-debug",
+        "BuildSlaveLabel" : "Ubuntu-20.04-0.0.0",
+        "CompilerConfig" : ""
+    },
+    {
+        "ConfigName" : "clang-x86_64-static-release",
+        "BuildSlaveLabel" : "Ubuntu-20.04-0.0.0",
+        "CompilerConfig" : ""
+    },
+    {
+        "ConfigName" : "gcc-x86_64-shared-debug",
+        "BuildSlaveLabel" : "Ubuntu-20.04-0.0.0",
+        "CompilerConfig" : ""
+    },
+    {
+        "ConfigName" : "vs2019-ninja-x86_64-shared-debug",
+        "BuildSlaveLabel" : "Windows-10-0.0.0",
+        "CompilerConfig" : "Release"
+    },
+    {
+        "ConfigName" : "vs2019-x86_64-shared-debug",
+        "BuildSlaveLabel" : "Windows-10-0.0.0",
+        "CompilerConfig" : "Debug"
+    },
+    {
+        "ConfigName" : "vs2019-x86_64-static-release",
+        "BuildSlaveLabel" : "Windows-10-0.0.0",
+        "CompilerConfig" : "Debug"
+    }
+]
