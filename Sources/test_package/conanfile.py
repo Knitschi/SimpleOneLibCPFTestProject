@@ -1,24 +1,37 @@
 import os
 
 from conans import ConanFile, tools, CMake
-#from conan.tools.cmake import CMake
 from conan.tools.layout import cmake_layout
 from conan.tools.cmake import CMakeDeps
+from conan.tools.cmake import CMakeToolchain
+
+
 
 class HelloTestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
-    # VirtualBuildEnv and VirtualRunEnv can be avoided if "tools.env.virtualenv:auto_use" is defined
-    # (it will be defined in Conan 2.0)
-    #generators = "CMakeDeps", "CMakeToolchain", "VirtualBuildEnv", "VirtualRunEnv"
+    options = {
+        "shared" : [True, False]
+    }
+
     generators = "cmake"
     apply_env = False
 
     def imports(self):
         self.copy("*.dll", "build/" + str(self.settings.build_type), "MyLib")
 
+    def generate(self):
+        # Generate cmake toolchain file.
+        tc = CMakeToolchain(self)
+        tc.generate()
+
     def build(self):
+
+        self.toolchain_file = self.install_folder.replace("\\","/") + "build/conan/conan_toolchain.cmake"
+
+        # Run CMake
         cmake = CMake(self)
-        cmake.definitions["MyLib_DIR"] = self.deps_cpp_info["MyLib"].rootpath + "/MyLib/lib/cmake/MyLib"
+        cmake.definitions["MyLib_DIR"] = self.deps_cpp_info["MyLib"].rootpath + "/lib/cmake/MyLib"
+        cmake.definitions["CMAKE_TOOLCHAIN_FILE"] = self.toolchain_file
         cmake.configure()
         cmake.build()
 
