@@ -39,7 +39,7 @@ class HelloTestConan(ConanFile):
                 abs_file_path = lib_path + "/" +  file
                 shutil.copy(abs_file_path, dest_dir)
 
-        self.toolchain_file = self.install_folder.replace("\\","/") + "/build/conan/conan_toolchain.cmake"
+        self.toolchain_file = self.build_folder.replace("\\","/") + "/conan/conan_toolchain.cmake"
 
         # CMake generate
         cmake_generate_command = self._vcvars_command() + "cmake -S.. -B . -G \"{0}\"".format(self.options.CMAKE_GENERATOR)
@@ -62,7 +62,7 @@ class HelloTestConan(ConanFile):
 
     def test(self):
         if not tools.cross_building(self):
-            cmd = os.path.join(self.cpp.build.bindirs[0], "example")
+            cmd = os.path.join(self.get_runtime_output_directory(), "example")
             self.run(cmd, env="conanrun")
 
 
