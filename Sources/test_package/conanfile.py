@@ -50,12 +50,15 @@ class HelloTestConan(ConanFile):
         cmake_generate_command += " -DCMAKE_RUNTIME_OUTPUT_DIRECTORY_{0}=\"{1}\"".format(
             str(self.settings.build_type).upper(),
             self.get_runtime_output_directory())
+        cmake_generate_command += " -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=\"{1}\"".format(
+            str(self.settings.build_type).upper(),
+            self.get_runtime_output_directory())
         print(cmake_generate_command)
 
         # CMake build
         self.run(cmake_generate_command)
 
-        self.run(self._vcvars_command() + "cmake --build . --config {0}".format(self.settings.build_type))
+        self.run(self._vcvars_command() + "cmake --build . --config {0} --clean-first".format(self.settings.build_type))
 
     def layout(self):
         cmake_layout(self)
