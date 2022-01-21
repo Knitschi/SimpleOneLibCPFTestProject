@@ -63,7 +63,7 @@ class HelloTestConan(ConanFile):
     def test(self):
         if not tools.cross_building(self):
             cmd = os.path.join(self.get_runtime_output_directory(), "example")
-            self.run(cmd, env="conanrun")
+            self.run("\"" + cmd + "\"", env="conanrun")
 
 
 
