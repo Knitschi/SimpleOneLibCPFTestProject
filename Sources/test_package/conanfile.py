@@ -11,7 +11,7 @@ from conan.tools.cmake import CMakeToolchain
 
 class HelloTestConan(ConanFile):
 
-    python_requires = "CPFConanfile/0.0.7@knitschi/development",
+    python_requires = "CPFConanfile/0.0.8@knitschi/development",
     python_requires_extend = "CPFConanfile.CPFBaseConanfile",
 
     def configure(self):
