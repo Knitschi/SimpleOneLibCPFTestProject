@@ -35,6 +35,8 @@ class HelloTestConan(ConanFile):
         if self.options.shared and self.settings.os == "Windows":
             dest_dir = self.get_runtime_output_directory()
             lib_path = self.deps_cpp_info["MyLib"].rootpath
+            # debug
+            print('----------------------------' + self.deps_cpp_info["MyLib"].rootpath)
             for file in glob.glob(r'*.dll', root_dir=lib_path):
                 abs_file_path = lib_path + "/" +  file
                 shutil.copy(abs_file_path, dest_dir)
