@@ -1,6 +1,7 @@
 import os
 import glob
 import shutil
+import pathlib
 
 from conans import ConanFile, tools, CMake
 from conan.tools.layout import cmake_layout
@@ -34,13 +35,12 @@ class HelloTestConan(ConanFile):
         # For unknown reasons the import() function was not called so we do it here.
         if self.options.shared and self.settings.os == "Windows":
             dest_dir = self.get_runtime_output_directory()
+            pathlib.Path(dest_dir).mkdir(parents=True, exist_ok=True)
             lib_path = self.deps_cpp_info["MyLib"].rootpath
-            # debug
-            self.run("python --version")
-            print('----------------------------' + self.deps_cpp_info["MyLib"].rootpath)
             for file in glob.glob(r'*.dll', root_dir=lib_path):
                 abs_file_path = lib_path + "/" +  file
-                shutil.copy(abs_file_path, dest_dir)
+                abs_dest_file_path = dest_dir + "/" +  file
+                shutil.copyfile(abs_file_path, abs_dest_file_path)
 
         self.toolchain_file = self.build_folder.replace("\\","/") + "/conan/conan_toolchain.cmake"
 
