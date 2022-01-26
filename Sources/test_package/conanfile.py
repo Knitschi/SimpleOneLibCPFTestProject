@@ -16,7 +16,31 @@ class HelloTestConan(ConanFile):
     python_requires_extend = "CPFConanfile.CPFBaseConanfile",
 
     def configure(self):
+        # Hand options 1 to 1 down to the tested package to avoid a rebuild.
+        self.options["MyLib"].CPF_CONFIG = self.options.CPF_CONFIG
         self.options["MyLib"].shared = self.options.shared
+        self.options["MyLib"].build_target = self.options.build_target
+        self.options["MyLib"].install_target = self.options.install_target
+        self.options["MyLib"].CMAKE_C_COMPILER = self.options.CMAKE_C_COMPILER
+        self.options["MyLib"].CMAKE_CXX_COMPILER = self.options.CMAKE_CXX_COMPILER
+        self.options["MyLib"].CMAKE_GENERATOR = self.options.CMAKE_GENERATOR
+        self.options["MyLib"].CMAKE_MAKE_PROGRAM = self.options.CMAKE_MAKE_PROGRAM
+        self.options["MyLib"].CMAKE_EXPORT_COMPILE_COMMANDS = self.options.CMAKE_EXPORT_COMPILE_COMMANDS
+        self.options["MyLib"].CPF_ENABLE_ABI_API_COMPATIBILITY_REPORT_TARGETS = self.options.CPF_ENABLE_ABI_API_COMPATIBILITY_REPORT_TARGETS
+        self.options["MyLib"].CPF_ENABLE_ABI_API_STABILITY_CHECK_TARGETS = self.options.CPF_ENABLE_ABI_API_STABILITY_CHECK_TARGETS
+        self.options["MyLib"].CPF_ENABLE_ACYCLIC_TARGET = self.options.CPF_ENABLE_ACYCLIC_TARGET
+        self.options["MyLib"].CPF_ENABLE_CLANG_FORMAT_TARGETS = self.options.CPF_ENABLE_CLANG_FORMAT_TARGETS
+        self.options["MyLib"].CPF_ENABLE_CLANG_TIDY_TARGET = self.options.CPF_ENABLE_CLANG_TIDY_TARGET
+        self.options["MyLib"].CPF_ENABLE_OPENCPPCOVERAGE_TARGET = self.options.CPF_ENABLE_OPENCPPCOVERAGE_TARGET
+        self.options["MyLib"].CPF_ENABLE_PACKAGE_DOX_FILE_GENERATION = self.options.CPF_ENABLE_PACKAGE_DOX_FILE_GENERATION
+        self.options["MyLib"].CPF_ENABLE_TEST_EXE_TARGETS = self.options.CPF_ENABLE_TEST_EXE_TARGETS
+        self.options["MyLib"].CPF_ENABLE_RUN_TESTS_TARGET = self.options.CPF_ENABLE_RUN_TESTS_TARGET
+        self.options["MyLib"].CPF_ENABLE_VALGRIND_TARGET = self.options.CPF_ENABLE_VALGRIND_TARGET
+        self.options["MyLib"].CPF_CLANG_TIDY_EXE = self.options.CPF_CLANG_TIDY_EXE
+        self.options["MyLib"].CPF_CLANG_FORMAT_EXE = self.options.CPF_CLANG_FORMAT_EXE
+        self.options["MyLib"].CPF_WEBSERVER_BASE_DIR = self.options.CPF_WEBSERVER_BASE_DIR
+        self.options["MyLib"].CPF_TEST_FILES_DIR = self.options.CPF_TEST_FILES_DIR
+        self.options["MyLib"].CPF_VERBOSE = self.options.CPF_VERBOSE
 
     def get_runtime_output_directory(self):
         return self.build_folder.replace("\\","/") + "/" + str(self.settings.build_type)
