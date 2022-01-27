@@ -20,3 +20,8 @@ Configuration
 /Sources/test_package/build
 /Sources/test_package/cmake-build-debug
 /Sources/test_package/cmake-build-release
+/conanbuildinfo.txt
+/conaninfo.txt
+/conan_toolchain.cmake
+/conanbuild.conf
+/conanbuildinfo.cmake
