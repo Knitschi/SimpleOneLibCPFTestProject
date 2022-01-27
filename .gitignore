@@ -25,3 +25,9 @@ Configuration
 /conan_toolchain.cmake
 /conanbuild.conf
 /conanbuildinfo.cmake
+/Sources/test_package_MyLib/build
+/Sources/test_package_MyLib/conaninfo.txt
+/Sources/test_package_MyLib/graph_info.json
+/Sources/test_package_MyLib/conan.lock
+/Sources/test_package_MyLib/conanbuildinfo.cmake
+/Sources/test_package_MyLib/conanbuildinfo.txt
