@@ -8,7 +8,7 @@ class SimpleOneLibCPFTestProject(ConanFile):
     description = "A package that is created by the SimpleOneLibCPFTestProject repository."
 
     # Dependencies
-    python_requires = "CPFConanfile/0.0.12@knitschi/development",
+    python_requires = "CPFConanfile/0.0.13@knitschi/development",
     python_requires_extend = "CPFConanfile.CPFBaseConanfile",
 
     build_requires = "doxygen/1.8.17",
@@ -27,3 +27,4 @@ class SimpleOneLibCPFTestProject(ConanFile):
             path_CPFBuildscripts='Sources/external/CPFBuildscripts',
             path_CIBuildConfigurations='Sources/external/CIBuildConfigurations'
             )
+
