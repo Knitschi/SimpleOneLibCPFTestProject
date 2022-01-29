@@ -2,7 +2,6 @@ from conans import ConanFile
 
 class SimpleOneLibCPFTestProject(ConanFile):
     
-    name = "MyLib"
     url = "https://github.com/Knitschi/SimpleOneLibCPFTestProject"
     license = "MIT"
     description = "A package that is created by the SimpleOneLibCPFTestProject repository."
