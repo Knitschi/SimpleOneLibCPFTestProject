@@ -1,17 +1,6 @@
 
-include(cpfPackageProject)
 include(cpfAddCppPackageComponent)
 
-cpfPackageProject(
-    TARGET_NAMESPACE mylib
-    COMPONENTS SINGLE_COMPONENT
-	BRIEF_DESCRIPTION "A C++ library used for testing the CPF"
-	LONG_DESCRIPTION "Put a long description in here ..."
-	OWNER "Dummy Owner"
-	PACKAGE_ARCHIVES
-		PACKAGE_ARCHIVE_CONTENT_TYPE 	CT_DEVELOPER
-		PACKAGE_ARCHIVE_FORMATS 		7Z
-)
 
 set( PACKAGE_PUBLIC_HEADER
 	function.h
@@ -35,6 +24,7 @@ set( PACKAGE_TEST_FILES
 
 ############################################## Add Package #################################
 cpfAddCppPackageComponent( 
+	BRIEF_DESCRIPTION		"A C++ library used for testing the CPF"
 	TYPE					LIB
 	PUBLIC_HEADER			${PACKAGE_PUBLIC_HEADER}
 	PRODUCTION_FILES		${PACKAGE_PRODUCTION_FILES}
@@ -42,5 +32,3 @@ cpfAddCppPackageComponent(
 	FIXTURE_FILES			${PACKAGE_FIXTURE_FILES}
 	TEST_FILES				${PACKAGE_TEST_FILES}
 )
-
-cpfFinalizePackageProject()

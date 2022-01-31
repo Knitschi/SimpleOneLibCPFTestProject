@@ -1,12 +1,5 @@
 
-include(cpfPackageProject)
 include(cpfAddDoxygenPackageComponent)
-
-cpfPackageProject(
-    TARGET_NAMESPACE doc
-    COMPONENTS SINGLE_COMPONENT
-	LANGUAGES NONE
-)
 
 set( sources
     ProjectDocumentation.dox
@@ -19,5 +12,3 @@ cpfAddDoxygenPackageComponent(
     DOXYGEN_STYLESHEET_FILE "${CMAKE_CURRENT_SOURCE_DIR}/DoxygenStylesheet.css"
     DOXYGEN_BIN_DIR ${CPF_DOXYGEN_DIR}
 )
-
-cpfFinalizePackageProject()
