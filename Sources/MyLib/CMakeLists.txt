@@ -6,8 +6,8 @@ cpfPackageProject(
     OWNER Knitschi
     TARGET_NAMESPACE mylib
     COMPONENTS
-        MyLib
         documentation
+        MyLib
 	PACKAGE_ARCHIVES
 		PACKAGE_ARCHIVE_CONTENT_TYPE 	CT_DEVELOPER
 		PACKAGE_ARCHIVE_FORMATS 		7Z
