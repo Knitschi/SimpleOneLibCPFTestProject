@@ -4,5 +4,4 @@ set( CPF_PACKAGES
 	EXTERNAL external/CPFCMake
     EXTERNAL external/CPFBuildscripts
     OWNED MyLib
-    OWNED documentation
 )
