@@ -8,3 +8,4 @@ namespace mylib
 		std::cout << "Hello MyLib\n";
 	}
 }
+
