@@ -3,7 +3,7 @@ from conans import ConanFile
 class MyLibTest(ConanFile):
 
     # Dependencies
-    python_requires =  "CPFConanfile/0.0.16@knitschi/development", "CPFPackageTestConanfile/0.0.1@knitschi/development",
+    python_requires =  "CPFConanfile/0.0.18@knitschi/development", "CPFPackageTestConanfile/0.0.2@knitschi/development",
     python_requires_extend = "CPFConanfile.CPFBaseConanfile", "CPFPackageTestConanfile.CPFBasePackageTestConanfile", 
 
     cpf_conanfile_module = None
