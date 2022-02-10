@@ -9,5 +9,8 @@ set(CPF_ENABLE_PRECOMPILED_HEADER TRUE)
 
 project(SimpleOneLibCPFTestProject)
 
+devMessage("${CMAKE_MAKE_PROGRAM}")
+
+
 cpfAddPackages(GLOBAL_FILES "${CPF_ROOT_DIR}/conanfile.py")
 
